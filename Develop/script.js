@@ -8,7 +8,7 @@ function generatePassword(){
   var specialArray = ["!","@","#","$","%","^","\&","*","(",")","-","_","+","=","`","~","[","]","{","}","/","?","<",">",",","."];
   var randomArray = [];
   var password = "Your Secure Password";
-  var lowerCase, upperCase, numeric, special;
+  var lowerCase, numeric, special;
 
   //Length prompts
   var passwordLength = window.prompt("Please enter a password length of at least 8 characters and at most 128 characters.");
@@ -20,10 +20,12 @@ function generatePassword(){
   //if password is non-numerical
   else if(isNaN(passwordLength)){
     window.alert("Please enter a numerical value.");
+    return password;
   }
   //if password length is outside of range
   else if(passwordLength < 8 || passwordLength > 128){
     window.alert("Please enter an appropriate password length.");
+    return password;
   }
   //prompt for including lowercase, uppercase, numeric, and/or special characters
   else{
@@ -42,6 +44,7 @@ function generatePassword(){
     //if nothing is added to the array and no uppercase characters are allowed:
     if(randomArray.length == 0){
       window.alert("Password must contain at least one type of character")
+      return password;
     }
     //if promt is complete generate password
     else{
@@ -55,6 +58,7 @@ function generatePassword(){
 }
 
 
+//starter code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
